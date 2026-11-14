@@ -392,3 +392,19 @@ inherits = "release"
 opt-level = "z"
 lto = true
 codegen-units = 1
+
+# Oxigraph's 0.5 line with oxiri 0.3, rand 0.10 and quick-xml 0.42
+# (mark-ik/oxigraph), so the workspace holds one oxiri. A consumer applies
+# its own patch; this one covers rudof's own builds.
+[patch.crates-io]
+oxigraph = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+oxjsonld = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+oxrdf = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+oxrdfio = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+oxrdfxml = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+oxsdatatypes = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+oxttl = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+sparesults = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+spareval = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+spargebra = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }
+sparopt = { git = "https://github.com/mark-ik/oxigraph", branch = "mark-ik/0.5" }

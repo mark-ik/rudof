@@ -168,7 +168,6 @@ pub enum OxigraphInMemoryError {
     /// - `err`: The underlying IRI parsing error
     #[error(transparent)]
     OxrdfIriParseError {
-        #[from]
         err: OxrdfIriParseError,
     },
 
