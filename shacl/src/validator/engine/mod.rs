@@ -1,6 +1,6 @@
 pub(crate) mod focus_nodes_ops;
 mod native;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 mod sparql;
 mod validate;
 mod value_nodes_ops;
@@ -17,9 +17,9 @@ use crate::validator::RecursionSemantics;
 use crate::validator::nodes::{FocusNodes, ValueNodes};
 use crate::validator::report::ValidationOutcome;
 pub use native::NativeEngine;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 use rudof_rdf::rdf_core::query::QueryRDF;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 pub use sparql::SparqlEngine;
 pub use validate::Validate;
 
@@ -161,7 +161,7 @@ pub struct NodeExprState {
     pub(crate) deactivated: HashMap<ShapeLabelIdx, bool>,
 }
 
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 fn select<S: QueryRDF>(store: &S, query: &str, index: &str) -> Result<HashSet<S::Term>, ValidationError> {
     let mut out = HashSet::new();
 

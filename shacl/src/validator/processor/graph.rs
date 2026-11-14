@@ -1,3 +1,5 @@
+// With `sparql-constraints` alone, `GraphValidation` has no processor: its store answers no SPARQL.
+#![cfg_attr(all(feature = "sparql-constraints", not(feature = "sparql")), allow(unused_imports, dead_code))]
 use crate::error::ValidationError;
 use crate::validator::ShaclConfig;
 use crate::validator::ShaclValidationMode;
@@ -94,7 +96,7 @@ impl ShaclProcessor<ReadRecorder<RdfData>> for GraphValidation {
     }
 }
 
-#[cfg(not(feature = "sparql"))]
+#[cfg(not(feature = "sparql-constraints"))]
 impl ShaclProcessor<ReadRecorder<OxigraphInMemory>> for GraphValidation {
     fn store(&self) -> &ReadRecorder<OxigraphInMemory> {
         &self.store

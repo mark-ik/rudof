@@ -12,7 +12,7 @@ use thiserror::Error;
 // TODO - better readability. Also check with other cases like constraints
 #[derive(Debug, Error)]
 pub enum ValidationError {
-    #[cfg(feature = "sparql")]
+    #[cfg(feature = "sparql-constraints")]
     #[error("Query error: {0}")]
     QueryError(String),
 
@@ -72,12 +72,12 @@ pub enum ValidationError {
 }
 
 impl ValidationError {
-    #[cfg(feature = "sparql")]
+    #[cfg(feature = "sparql-constraints")]
     pub fn ask_query_error<RDF: Rdf>(error: RDF::Err) -> Self {
         Self::QueryError(format!("ASK query failed: {error}"))
     }
 
-    #[cfg(feature = "sparql")]
+    #[cfg(feature = "sparql-constraints")]
     pub fn select_query_error<RDF: Rdf>(error: RDF::Err) -> Self {
         Self::QueryError(format!("SELECT query failed: {error}"))
     }

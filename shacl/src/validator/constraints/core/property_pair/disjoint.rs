@@ -1,22 +1,22 @@
 use crate::error::ValidationError;
 use crate::ir::components::Disjoint;
 use crate::ir::{IRComponent, IRSchema, IRShape};
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 use crate::validator::constraints::BasicSparqlValidator;
 use crate::validator::constraints::{NativeValidator, validate_with_focus};
 use crate::validator::engine::Engine;
 use crate::validator::iteration::ValueNodeIteration;
 use crate::validator::nodes::ValueNodes;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 use crate::validator::report::Evidence;
 use crate::validator::report::ValidationOutcome;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 use crate::validator::report::ValidationResult;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 use indoc::formatdoc;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 use rudof_rdf::rdf_core::query::QueryRDF;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 use rudof_rdf::rdf_core::term::Object;
 use rudof_rdf::rdf_core::term::Triple;
 use rudof_rdf::rdf_core::{NeighsRDF, SHACLPath};
@@ -68,7 +68,7 @@ impl<S: NeighsRDF + Debug + 'static> NativeValidator<S> for Disjoint {
     }
 }
 
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 impl<S: QueryRDF + NeighsRDF + Debug + 'static> BasicSparqlValidator<S> for Disjoint {
     fn validate_sparql(
         &self,

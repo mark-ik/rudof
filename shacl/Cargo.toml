@@ -12,7 +12,10 @@ repository.workspace = true
 
 [features]
 default = ["sparql"]
-sparql = ["dep:sparql_service", "sparql_service/sparql", "rudof_rdf/sparql"]
+# `sh:sparql` constraints and the SPARQL engine, over any store that implements
+# `rudof_rdf`'s `QueryRDF`; brings no SPARQL implementation of its own.
+sparql-constraints = []
+sparql = ["sparql-constraints", "dep:sparql_service", "sparql_service/sparql", "rudof_rdf/sparql"]
 
 [dependencies]
 anyhow.workspace = true

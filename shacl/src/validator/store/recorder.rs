@@ -11,7 +11,7 @@
 use oxrdf::Triple as OxTriple;
 use prefixmap::{PrefixMap, PrefixMapError};
 use rudof_iri::IriS;
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 use rudof_rdf::rdf_core::query::{QueryRDF, QueryResultFormat, QuerySolutions};
 use rudof_rdf::rdf_core::{Matcher, NeighsRDF, Rdf};
 use rudof_rdf_sink::{RdfSinkError, TriplesSink};
@@ -165,7 +165,7 @@ impl<S: NeighsRDF<Triple = OxTriple>> NeighsRDF for ReadRecorder<S> {
     }
 }
 
-#[cfg(feature = "sparql")]
+#[cfg(feature = "sparql-constraints")]
 impl<S: QueryRDF> QueryRDF for ReadRecorder<S> {
     fn query_construct(&self, query: &str, format: &QueryResultFormat) -> Result<String, Self::Err> {
         self.inner
