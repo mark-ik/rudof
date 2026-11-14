@@ -16,7 +16,6 @@ repository.workspace = true
 http = ["dep:reqwest"]
 
 [dependencies]
-getrandom.workspace = true
 indexmap.workspace = true
 oxiri.workspace = true
 oxrdf.workspace = true
@@ -32,4 +31,4 @@ proptest.workspace = true
 reqwest.workspace = true
 
 [target.'cfg(target_family = "wasm")'.dependencies]
-getrandom = { version = "0.3", features = ["wasm_js"] }
+getrandom.workspace = true
