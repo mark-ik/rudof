@@ -9,6 +9,12 @@ license.workspace = true
 homepage.workspace = true
 repository.workspace = true
 
+[features]
+# Dereferences IRIs over HTTP with a blocking client on native targets.
+# Without it, native builds dereference as wasm builds do, through
+# `set_dereferencer`.
+http = ["dep:reqwest"]
+
 [dependencies]
 getrandom.workspace = true
 indexmap.workspace = true
@@ -19,10 +25,10 @@ thiserror.workspace = true
 url.workspace = true
 
 [target.'cfg(not(target_family = "wasm"))'.dependencies]
-proptest.workspace = true
-reqwest = { workspace = true, features = ["blocking"] }
+reqwest = { workspace = true, optional = true, features = ["blocking"] }
 
 [target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
+proptest.workspace = true
 reqwest.workspace = true
 
 [target.'cfg(target_family = "wasm")'.dependencies]

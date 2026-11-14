@@ -18,6 +18,7 @@ sparql = [
     "dep:spargebra",
     "dep:sparesults",
     "dep:futures",
+    "rudof_iri/http",
 ]
 qlever = [
     "sparql",
@@ -75,9 +76,9 @@ bollard = { workspace = true, optional = true }
 nix = { workspace = true, optional = true }
 
 [target.'cfg(not(target_family = "wasm"))'.dependencies]
-oxigraph = { workspace = true, features = ["http-client-rustls-native"] }
+oxigraph = { workspace = true, optional = true, features = ["http-client-rustls-native"] }
 tempfile.workspace = true
-tokio = { workspace = true, features = ["full"] }
+tokio = { workspace = true, optional = true, features = ["full"] }
 
 [target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
 proptest.workspace = true

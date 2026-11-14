@@ -16,6 +16,6 @@ rudof_iri.workspace = true
 serde.workspace = true
 thiserror.workspace = true
 
-[target.'cfg(not(target_family = "wasm"))'.dependencies]
+[target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
 proptest.workspace = true
 #bencher.workspace = true

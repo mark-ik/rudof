@@ -200,7 +200,7 @@ impl IriS {
 
     /// [Dereference](https://www.w3.org/wiki/DereferenceURI) the IRI and get the content available from it.
     /// It handles also IRIs with the `file` scheme as local file names. For example: `file:///person.txt`
-    #[cfg(not(target_family = "wasm"))]
+    #[cfg(all(not(target_family = "wasm"), feature = "http"))]
     pub fn dereference(&self, base: Option<&IriS>) -> Result<String, IriSError> {
         use reqwest::blocking::Client;
         use reqwest::header;
@@ -250,7 +250,7 @@ impl IriS {
     /// There is no file system nor blocking HTTP client on wasm: the IRI is
     /// fetched with the function set with [`crate::set_dereferencer`], and
     /// fails if there is none.
-    #[cfg(target_family = "wasm")]
+    #[cfg(any(target_family = "wasm", not(feature = "http")))]
     pub fn dereference(&self, base: Option<&IriS>) -> Result<String, IriSError> {
         let url = self.dereference_url(base)?;
         if url.scheme() == "file" {

@@ -33,7 +33,7 @@ pub fn reset() {
 /// How often [`cancelled`] re-checks the flag while waiting. Bounds how
 /// long an in-flight request/sleep can take to notice a cancellation —
 /// short enough to feel immediate, long enough not to matter for CPU usage.
-#[cfg(not(target_family = "wasm"))]
+#[cfg(all(not(target_family = "wasm"), feature = "sparql"))]
 const POLL_INTERVAL: std::time::Duration = std::time::Duration::from_millis(100);
 
 /// Resolves once cancellation is requested; never resolves otherwise.
@@ -47,7 +47,7 @@ const POLL_INTERVAL: std::time::Duration = std::time::Duration::from_millis(100)
 ///     result = some_future => result,
 /// }
 /// ```
-#[cfg(not(target_family = "wasm"))]
+#[cfg(all(not(target_family = "wasm"), feature = "sparql"))]
 pub async fn cancelled() {
     while !is_cancelled() {
         tokio::time::sleep(POLL_INTERVAL).await;
@@ -73,7 +73,7 @@ mod tests {
         assert!(!is_cancelled());
     }
 
-    #[cfg(not(target_family = "wasm"))]
+    #[cfg(all(not(target_family = "wasm"), feature = "sparql"))]
     #[tokio::test]
     async fn cancelled_future_resolves_once_requested() {
         reset();

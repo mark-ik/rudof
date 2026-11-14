@@ -1,8 +1,8 @@
-#[cfg(target_family = "wasm")]
+#[cfg(any(target_family = "wasm", not(feature = "http")))]
 pub(crate) mod dereferencer;
 mod iri_or_string;
 mod iris;
-#[cfg(not(target_family = "wasm"))]
+#[cfg(all(test, not(target_family = "wasm")))]
 mod test;
 mod visitor;
 #[cfg(target_family = "wasm")]
