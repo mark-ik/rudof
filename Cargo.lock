@@ -334,7 +334,7 @@ dependencies = [
  "serde",
  "shex_ast",
  "shex_validation",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "walkdir",
  "zip 2.4.2",
 ]
@@ -807,7 +807,7 @@ version = "3.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "faf9468729b8cbcea668e36183cb69d317348c2e08e994829fb56ebfdfbaac34"
 dependencies = [
- "windows-sys 0.61.2",
+ "windows-sys 0.48.0",
 ]
 
 [[package]]
@@ -1255,7 +1255,7 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "tracing-test",
 ]
@@ -3129,20 +3129,19 @@ dependencies = [
 
 [[package]]
 name = "oxigraph"
-version = "0.5.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7f6632dd080bd07676f06e70254ff5862c9943e9483d700fa7258df73a3f9a6a"
+version = "0.5.13"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "dashmap",
- "getrandom 0.3.4",
+ "getrandom 0.4.3",
  "js-sys",
  "libc",
  "oxhttp",
- "oxiri 0.2.11",
+ "oxiri",
  "oxrdf",
  "oxrdfio",
  "oxsdatatypes",
- "rand 0.9.5",
+ "rand 0.10.2",
  "rustc-hash 2.1.3",
  "siphasher",
  "sparesults",
@@ -3162,12 +3161,6 @@ dependencies = [
 
 [[package]]
 name = "oxiri"
-version = "0.2.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "54b4ed3a7192fa19f5f48f99871f2755047fabefd7f222f12a1df1773796a102"
-
-[[package]]
-name = "oxiri"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1b6bd0ef560f078e41ce2ebf370cce217e7fb2c3695ffa87541151c9de94e83a"
@@ -3177,12 +3170,11 @@ dependencies = [
 
 [[package]]
 name = "oxjsonld"
-version = "0.2.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "86a3e89e005662e60327027f45ec7cefd0472404e01831b5d83a3ac522cfabe0"
+version = "0.2.7"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "json-event-parser",
- "oxiri 0.2.11",
+ "oxiri",
  "oxrdf",
  "ryu-js",
  "thiserror 2.0.20",
@@ -3190,24 +3182,22 @@ dependencies = [
 
 [[package]]
 name = "oxrdf"
-version = "0.3.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4be15186205eb60ddbdc2fb47cb25df472c7f399bbe119b68c0972b6b6dd46ea"
+version = "0.3.5"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "hex",
  "oxilangtag",
- "oxiri 0.2.11",
+ "oxiri",
  "oxsdatatypes",
- "rand 0.9.5",
+ "rand 0.10.2",
  "sha2",
  "thiserror 2.0.20",
 ]
 
 [[package]]
 name = "oxrdfio"
-version = "0.2.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "17b3fe3bb34179c376ab04f2a1b32616b0babab574b3b7eef64d587e60d5e1db"
+version = "0.2.7"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "oxjsonld",
  "oxrdf",
@@ -3218,22 +3208,20 @@ dependencies = [
 
 [[package]]
 name = "oxrdfxml"
-version = "0.2.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "71853d12051879f3e424c6864e978f5f5cbecd8e86a9817adbccaefccac9d61d"
+version = "0.2.5"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "oxilangtag",
- "oxiri 0.2.11",
+ "oxiri",
  "oxrdf",
- "quick-xml 0.37.5",
+ "quick-xml 0.42.0",
  "thiserror 2.0.20",
 ]
 
 [[package]]
 name = "oxsdatatypes"
-version = "0.2.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c17c2ae62ac34fda465f6331105906c0e17b4e088dac3249e1f229b962062503"
+version = "0.2.4"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "js-sys",
  "thiserror 2.0.20",
@@ -3241,13 +3229,12 @@ dependencies = [
 
 [[package]]
 name = "oxttl"
-version = "0.2.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b1d0fe19fa62a6a102f85b052bbd86e3cdc3360cd6a338d01bab1a6743bf1d8e"
+version = "0.2.5"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "memchr",
  "oxilangtag",
- "oxiri 0.2.11",
+ "oxiri",
  "oxrdf",
  "thiserror 2.0.20",
 ]
@@ -3786,7 +3773,7 @@ dependencies = [
  "serde",
  "serde_json",
  "time",
- "toml 1.1.6+spec-1.1.0",
+ "toml",
 ]
 
 [[package]]
@@ -3830,20 +3817,20 @@ dependencies = [
 
 [[package]]
 name = "quick-xml"
-version = "0.37.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "331e97a1af0bf59823e6eadffe373d7b27f485be8748f71471c662c1f269b7fb"
-dependencies = [
- "memchr",
-]
-
-[[package]]
-name = "quick-xml"
 version = "0.38.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b66c2058c55a409d601666cffe35f04333cf1013010882cec174a7467cd4e21c"
 dependencies = [
  "encoding_rs",
+ "memchr",
+]
+
+[[package]]
+name = "quick-xml"
+version = "0.42.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "41b1177fdf999d2321d3fb46ff47159d9c1fb9ad66a4879f8c50a0b504615e9b"
+dependencies = [
  "memchr",
 ]
 
@@ -4069,7 +4056,7 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "tracing-test",
 ]
@@ -4098,7 +4085,7 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "yaml-rust2",
 ]
@@ -4312,7 +4299,7 @@ dependencies = [
  "tempfile",
  "thiserror 2.0.20",
  "tokio",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "tracing-subscriber",
  "url",
@@ -4325,7 +4312,7 @@ dependencies = [
  "dirs",
  "serde",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
 ]
 
 [[package]]
@@ -4355,7 +4342,7 @@ dependencies = [
  "tempfile",
  "thiserror 2.0.20",
  "tokio",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "tracing-subscriber",
 ]
@@ -4364,10 +4351,9 @@ dependencies = [
 name = "rudof_iri"
 version = "0.3.39"
 dependencies = [
- "getrandom 0.3.4",
  "getrandom 0.4.3",
  "indexmap 2.14.2",
- "oxiri 0.3.1",
+ "oxiri",
  "oxrdf",
  "proptest",
  "reqwest",
@@ -4413,7 +4399,7 @@ dependencies = [
  "tempfile",
  "thiserror 2.0.20",
  "tokio",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "url",
  "wasm-bindgen-test",
@@ -4450,14 +4436,14 @@ dependencies = [
  "const_format",
  "csv",
  "futures",
- "getrandom 0.3.4",
+ "getrandom 0.4.3",
  "include_dir",
  "js-sys",
  "nix 0.30.1",
  "once_cell",
  "oxigraph",
  "oxilangtag",
- "oxiri 0.3.1",
+ "oxiri",
  "oxjsonld",
  "oxrdf",
  "oxrdfio",
@@ -4484,7 +4470,7 @@ dependencies = [
  "thiserror 2.0.20",
  "tokio",
  "tokio-util",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "url",
  "wasm-bindgen",
@@ -5105,7 +5091,6 @@ name = "shacl"
 version = "0.3.39"
 dependencies = [
  "anyhow",
- "dashmap",
  "either",
  "indoc",
  "itertools 0.14.0",
@@ -5124,7 +5109,7 @@ dependencies = [
  "sparql_service",
  "stacker",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
 ]
 
@@ -5169,7 +5154,7 @@ dependencies = [
  "sparql_service",
  "tempfile",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "tracing-test",
 ]
@@ -5211,7 +5196,7 @@ dependencies = [
  "tabled",
  "term_size",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
 ]
 
@@ -5229,7 +5214,7 @@ dependencies = [
  "shex_ast",
  "shex_validation",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "tracing-subscriber",
  "url",
@@ -5257,7 +5242,7 @@ dependencies = [
  "stacker",
  "termtree",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
  "tracing-test",
  "url",
@@ -5358,30 +5343,28 @@ dependencies = [
 
 [[package]]
 name = "sparesults"
-version = "0.3.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5dfa99dba6f5155ef4fdd75b78f794ea0c729e17b07d84eb88ae3c1278d1758d"
+version = "0.3.5"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "json-event-parser",
  "memchr",
  "oxrdf",
- "quick-xml 0.37.5",
+ "quick-xml 0.42.0",
  "thiserror 2.0.20",
 ]
 
 [[package]]
 name = "spareval"
-version = "0.2.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "85b51144836ff9ca2f792b7a2422c4170ff04460d86cd8f2f764cf53e339cbec"
+version = "0.2.9"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "hex",
  "json-event-parser",
  "md-5",
- "oxiri 0.2.11",
+ "oxiri",
  "oxrdf",
  "oxsdatatypes",
- "rand 0.9.5",
+ "rand 0.10.2",
  "regex",
  "rustc-hash 2.1.3",
  "sha1 0.11.0",
@@ -5394,26 +5377,24 @@ dependencies = [
 
 [[package]]
 name = "spargebra"
-version = "0.4.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bef3c186ffb9bf2dde7c5edd5528583f309fcb819b5773cf0e313194a990304f"
+version = "0.4.8"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "oxilangtag",
- "oxiri 0.2.11",
+ "oxiri",
  "oxrdf",
  "peg",
- "rand 0.9.5",
+ "rand 0.10.2",
  "thiserror 2.0.20",
 ]
 
 [[package]]
 name = "sparopt"
-version = "0.3.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "973ee503ab3d6c3de66b4b459233cd5b22b44dad0fb7b8d0931daf73d2ede935"
+version = "0.3.9"
+source = "git+https://github.com/mark-ik/oxigraph?branch=mark-ik%2F0.5#8dad126fac7f82dc01192129ba821ee5ac21732f"
 dependencies = [
  "oxrdf",
- "rand 0.9.5",
+ "rand 0.10.2",
  "spargebra",
 ]
 
@@ -5438,7 +5419,7 @@ dependencies = [
  "serde_json",
  "sparesults",
  "thiserror 2.0.20",
- "toml 0.9.12+spec-1.1.0",
+ "toml",
  "tracing",
 ]
 
@@ -5892,21 +5873,6 @@ dependencies = [
 
 [[package]]
 name = "toml"
-version = "0.9.12+spec-1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cf92845e79fc2e2def6a5d828f0801e29a2f8acc037becc5ab08595c7d5e9863"
-dependencies = [
- "indexmap 2.14.2",
- "serde_core",
- "serde_spanned",
- "toml_datetime 0.7.5+spec-1.1.0",
- "toml_parser",
- "toml_writer",
- "winnow 0.7.15",
-]
-
-[[package]]
-name = "toml"
 version = "1.1.6+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "920602543f0911ab71da12c50d59701da54c196d1a2bf5cb4b75667f137a406a"
@@ -5914,19 +5880,10 @@ dependencies = [
  "indexmap 2.14.2",
  "serde_core",
  "serde_spanned",
- "toml_datetime 1.1.1+spec-1.1.0",
+ "toml_datetime",
  "toml_parser",
  "toml_writer",
- "winnow 1.0.4",
-]
-
-[[package]]
-name = "toml_datetime"
-version = "0.7.5+spec-1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "92e1cfed4a3038bc5a127e35a2d360f145e1f4b971b551a2ba5fd7aedf7e1347"
-dependencies = [
- "serde_core",
+ "winnow",
 ]
 
 [[package]]
@@ -5945,9 +5902,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1340ea94a5856333492c9064b02c778b191dd2c853778d9609debdcdfea3a614"
 dependencies = [
  "indexmap 2.14.2",
- "toml_datetime 1.1.1+spec-1.1.0",
+ "toml_datetime",
  "toml_parser",
- "winnow 1.0.4",
+ "winnow",
 ]
 
 [[package]]
@@ -5956,7 +5913,7 @@ version = "1.1.3+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1d38ac1cf9b95face32296c0a3ede1fdc270627c9d9c02a7274dd6d960dc4d56"
 dependencies = [
- "winnow 1.0.4",
+ "winnow",
 ]
 
 [[package]]
@@ -6545,7 +6502,7 @@ version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22"
 dependencies = [
- "windows-sys 0.61.2",
+ "windows-sys 0.48.0",
 ]
 
 [[package]]
@@ -6760,12 +6717,6 @@ name = "windows_x86_64_msvc"
 version = "0.52.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
-
-[[package]]
-name = "winnow"
-version = "0.7.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "df79d97927682d2fd8adb29682d1140b343be4ac0f08fd68b7765d9c059d3945"
 
 [[package]]
 name = "winnow"
