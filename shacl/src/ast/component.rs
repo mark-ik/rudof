@@ -1,6 +1,5 @@
 use crate::ast::node_expr::ASTNodeExpr;
 use crate::types::{MessageMap, NodeKind, Value};
-use itertools::Itertools;
 use prefixmap::{IriRef, PrefixMap};
 use rudof_iri::IriS;
 use rudof_rdf::rdf_core::SHACLPath;
@@ -61,6 +60,14 @@ pub enum ASTComponent {
     },
 }
 
+fn joined(values: impl IntoIterator<Item = impl Display>) -> String {
+    values
+        .into_iter()
+        .map(|value| value.to_string())
+        .collect::<Vec<_>>()
+        .join(", ")
+}
+
 impl Display for ASTComponent {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
@@ -81,7 +88,7 @@ impl Display for ASTComponent {
             },
             ASTComponent::UniqueLang(l) => write!(f, "uniqueLang({l})"),
             ASTComponent::LanguageIn(l) => {
-                let str = l.iter().map(|s| s.to_string()).join(", ");
+                let str = joined(l);
                 write!(f, "languageIn[{str}]")
             },
             ASTComponent::Equals(iri) => write!(f, "equals({iri})"),
@@ -90,16 +97,16 @@ impl Display for ASTComponent {
             ASTComponent::LessThanOrEquals(iri) => write!(f, "lessThanOrEquals({iri})"),
             ASTComponent::SubsetOf(path) => write!(f, "subsetOf({path})"),
             ASTComponent::Or(obj) => {
-                let str = obj.iter().map(|s| s.to_string()).join(", ");
+                let str = joined(obj);
                 write!(f, "or[{str}]")
             },
             ASTComponent::And(obj) => {
-                let str = obj.iter().map(|s| s.to_string()).join(", ");
+                let str = joined(obj);
                 write!(f, "and[{str}]")
             },
             ASTComponent::Not(obj) => write!(f, "not({obj})"),
             ASTComponent::Xone(obj) => {
-                let str = obj.iter().map(|s| s.to_string()).join(", ");
+                let str = joined(obj);
                 write!(f, "xone[{str}]")
             },
             ASTComponent::Closed {
@@ -111,16 +118,13 @@ impl Display for ASTComponent {
                 if ignored_properties.is_empty() {
                     "".to_string()
                 } else {
-                    format!(
-                        ", Ignored props: [{}]",
-                        ignored_properties.iter().map(|p| p.to_string()).join(", ")
-                    )
+                    format!(", Ignored props: [{}]", joined(ignored_properties))
                 }
             ),
             ASTComponent::Node(obj) => write!(f, "node({obj})"),
             ASTComponent::HasValue(v) => write!(f, "hasValue({v})"),
             ASTComponent::In(v) => {
-                let str = v.iter().map(|v| v.to_string()).join(", ");
+                let str = joined(v);
                 write!(f, "in[{str}]")
             },
             ASTComponent::QualifiedValueShape {
@@ -136,7 +140,7 @@ impl Display for ASTComponent {
                     if siblings.is_empty() {
                         "".to_string()
                     } else {
-                        format!(", siblings: [{}]", siblings.iter().map(|s| s.to_string()).join(", "))
+                        format!(", siblings: [{}]", joined(siblings))
                     }
                 )
             },

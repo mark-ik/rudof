@@ -2,7 +2,6 @@ use crate::error::IRError;
 use crate::ir::IRSchema;
 use crate::ir::node_expr::IRNodeExpr;
 use crate::validator::engine::Engine;
-use itertools::Itertools;
 use rudof_rdf::rdf_core::NeighsRDF;
 use std::collections::{HashMap, HashSet};
 use std::fmt::{Debug, Display, Formatter};
@@ -42,10 +41,10 @@ impl Intersection {
             .map(|expr| Ok(expr.evaluate(store, focus, scope, runner, ir)?.into_iter().collect()))
             .collect::<Result<Vec<HashSet<Rdf::Term>>, IRError>>()?;
 
+        let mut seen = HashSet::new();
         let out = first
             .into_iter()
-            .filter(|term| rest.iter().all(|values| values.contains(term)))
-            .unique()
+            .filter(|term| rest.iter().all(|values| values.contains(term)) && seen.insert(term.clone()))
             .collect();
 
         Ok(out)

@@ -1,4 +1,3 @@
-use itertools::Itertools;
 use rudof_rdf::rdf_core::term::Object;
 use std::fmt::{Display, Formatter};
 
@@ -31,7 +30,11 @@ impl Display for ReifierInfo {
             f,
             "ReifierInfo {{ reificationRequired: {}, reifierShape: {} }}",
             self.reification_required,
-            self.reifier_shape().iter().map(|node| node.to_string()).join(", ")
+            self.reifier_shape()
+                .iter()
+                .map(ToString::to_string)
+                .collect::<Vec<_>>()
+                .join(", ")
         )
     }
 }

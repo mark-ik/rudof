@@ -12,7 +12,6 @@ use crate::ir::shape::IRShape;
 use crate::ir::shape_label_idx::ShapeLabelIdx;
 use crate::ir::{convert_iri_ref, convert_value};
 use crate::types::NodeKind;
-use itertools::Itertools;
 use rudof_iri::IriS;
 use rudof_rdf::rdf_core::BuildRDF;
 use rudof_rdf::rdf_core::term::Object;
@@ -107,7 +106,7 @@ impl IRComponent {
             ASTComponent::Closed {
                 is_closed,
                 ignored_properties,
-            } => IRComponent::Closed(Closed::new(is_closed, ignored_properties.into_iter().collect_vec())),
+            } => IRComponent::Closed(Closed::new(is_closed, ignored_properties.into_iter().collect())),
             ASTComponent::Node(obj) => {
                 let idx = ir.register_shape(&obj, None, ast)?;
                 IRComponent::Node(Node::new(idx))

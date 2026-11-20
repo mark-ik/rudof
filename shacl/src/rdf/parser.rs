@@ -3,7 +3,6 @@ use crate::rdf::State;
 use crate::rdf::error::ShaclParserError;
 use crate::rdf::parsers::node_expr::node_expr_from_term;
 use crate::rdf::parsers::{list_with_budget, node_shape, property_shape};
-use itertools::Itertools;
 use rudof_rdf::rdf_core::parser::RDFParse;
 use rudof_rdf::rdf_core::parser::rdf_node_parser::constructors::{ParseBudget, SuccessParser};
 use rudof_rdf::rdf_core::parser::rdf_node_parser::{ParserExt, RDFNodeParse};
@@ -162,7 +161,7 @@ impl<RDF: FocusRDF> ShaclParser<RDF> {
         Ok(node_shapes_instances
             .into_iter()
             .map(|s| RDF::subject_as_node(&s))
-            .try_collect()?)
+            .collect::<Result<_, _>>()?)
     }
 
     fn get_triples<S, P, O>(&self, s: &S, p: &P, o: &O) -> Result<HashSet<RDF::Subject>, ShaclParserError>

@@ -21,7 +21,6 @@ sparql = ["sparql-constraints", "dep:sparql_service", "sparql_service/sparql", "
 anyhow.workspace = true
 either.workspace = true
 indoc.workspace = true
-itertools.workspace = true
 petgraph.workspace = true
 prefixmap.workspace = true
 rayon.workspace = true
